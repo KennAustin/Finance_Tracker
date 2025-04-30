@@ -17,12 +17,13 @@ Finance Tracker adalah aplikasi web sederhana yang memungkinkan pengguna untuk m
 - **JavaScript**: Logika aplikasi dan interaksi pengguna.
 
 ## 📂 Struktur Proyek
-
+```
 Finance_Tracker/ 
 ├── index.html 
 ├── style.css 
 ├── script.js 
 └── README.md
+```
 
 ## 🔧 Cara Menggunakan
 
