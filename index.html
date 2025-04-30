@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-wallet"></i> Finance Tracker</h1>
+            <p>Kelola keuangan pribadi Anda</p>
+        </header>
+
+        <div class="app-container">
+            <div class="overview-cards">
+                <div class="card balance-card">
+                    <h3>Saldo Saat Ini</h3>
+                    <div class="amount" id="currentBalance">Rp0</div>
+                </div>
+                
+                <div class="card income-card">
+                    <h3>Total Pemasukan</h3>
+                    <div class="amount" id="totalIncome">Rp0</div>
+                </div>
+                
+                <div class="card expense-card">
+                    <h3>Total Pengeluaran</h3>
+                    <div class="amount" id="totalExpenses">Rp0</div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="transaction-section">
+                    <div class="add-transaction">
+                        <h2><i class="fas fa-plus-circle"></i> Tambah Transaksi</h2>
+                        <form id="transactionForm">
+                            <div class="form-group">
+                                <label for="transactionType">Jenis</label>
+                                <select id="transactionType" required>
+                                    <option value="income">Pemasukan</option>
+                                    <option value="expense">Pengeluaran</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="transactionCategory">Kategori</label>
+                                <select id="transactionCategory" required>
+                                    <!-- Categories will be populated by JS -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="transactionAmount">Jumlah (Rp)</label>
+                                <input type="number" id="transactionAmount" min="100" step="100" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="transactionDate">Tanggal</label>
+                                <input type="date" id="transactionDate" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="transactionDescription">Keterangan (Opsional)</label>
+                                <input type="text" id="transactionDescription" placeholder="Contoh: Gaji bulanan, Belanja bulanan...">
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Tambah Transaksi</button>
+                        </form>
+                    </div>
+                    
+                    <div class="transaction-list">
+                        <h2><i class="fas fa-list"></i> Transaksi Terakhir</h2>
+                        <div class="filter-options">
+                            <select id="filterType">
+                                <option value="all">Semua Transaksi</option>
+                                <option value="income">Pemasukan</option>
+                                <option value="expense">Pengeluaran</option>
+                            </select>
+                            <select id="filterCategory">
+                                <option value="all">Semua Kategori</option>
+                            </select>
+                            <select id="filterMonth">
+                                <option value="all">Semua Waktu</option>
+                                <!-- Months will be populated by JS -->
+                            </select>
+                        </div>
+                        <div class="transactions" id="transactionsContainer">
+                            <!-- Transactions will be added here dynamically -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analytics-section">
+                    <div class="chart-container">
+                        <h2><i class="fas fa-chart-pie"></i> Pengeluaran per Kategori</h2>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h2><i class="fas fa-chart-line"></i> Ringkasan Bulanan</h2>
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
